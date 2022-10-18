@@ -1,24 +1,24 @@
 # ZhihuWeiboHotFilter-Selenium
-根据自定义关键字，过滤知乎、微博的热榜中个人可能感兴趣的话题。
+根据自定义关键字，过滤知乎、微博的热榜中个人可能感兴趣的话题。<p>
 目前仅支持Windows10系统、Chrome浏览器。<p>
 包含邮件发送功能，有兴趣的朋友可以放到自己服务器上配置成定时任务。<p>
-测试代码没有清理干净，先保留，方便以后改进。
-知乎和微博的热榜总数都只能扫描到44条，原因不明，暂时不作深究。
+测试代码没有清理干净，先保留，方便以后改进。<p>
+知乎和微博的热榜总数都只能扫描到44条，原因不明，暂时不作深究。<p>
 作者：<a href="https://www.zhihu.com/people/nidaye2" target="_blank">尼尼尼@知乎</a>
 
 **使用过程概述：**<p>
-下载解压后运行exe -> 修改config.json中“keyWordList”自定义关键词 -> 运行main.exe
+下载解压后运行exe -> 修改config.json中“keyWordList”自定义关键词 -> 运行main.exe <p>
 
 **下载地址：**<p>
 百度网盘: https://pan.baidu.com/s/1cYQtcfRqW_IsrOBNch4Zew?pwd=6666  <p>
-Github: https://github.com/ninini1990/ZhihuWeiboHotFilter-Selenium<p>
+Github: https://github.com/ninini1990/ZhihuWeiboHotFilter-Selenium <p>
 
 **运行环境需求：**<p>
 Windows 10 (64位), Chrome浏览器 (v104 或其他较高版本, 64位）<p>
-暂时未对其它环境/版本进行详细测试。
+暂时未对其它环境/版本进行详细测试。<p>
 
 **问题反馈：**<p>
-知乎私信，或发送邮件到 ninini19900319@gmail.com
+知乎私信，或发送邮件到 ninini19900319@gmail.com <p>
  
 ---
 <h2>使用提示</h2> <p>
@@ -29,10 +29,10 @@ Windows 10 (64位), Chrome浏览器 (v104 或其他较高版本, 64位）<p>
 3. 如果仍然担心安全性，可从Github下载源码。在本地安装Python环境，并执行脚本。入口是main.py<p>
 
 **使用风险提示：**<p>
-请勿过度频繁使用，防止被网站识别为爬虫。
+请勿过度频繁使用，防止被网站识别为爬虫。<p>
 
 **开源协议:**<p>
-使用GPL3协议，请保持代码开源及遵守GPL3其他规则。
+使用GPL3协议，请保持代码开源及遵守GPL3其他规则。<p>
 
 ---
 <h2>安装及使用详细说明</h2><p>
@@ -50,13 +50,13 @@ autoOpenResult -- 默认为1，执行完成后在浏览器中打开。如改为0
 
 其它“mail” 相关的参数是发送邮件所用，主要用于定时脚本配置，一般不需要修改，这里不作详细讲解。<p>
 
-![image](https://user-images.githubusercontent.com/112439804/196354343-075e8e10-066b-46e8-85d8-cabb0384c760.png)
+![image](https://user-images.githubusercontent.com/112439804/196354343-075e8e10-066b-46e8-85d8-cabb0384c760.png) <p>
 
 4.执行main.exe, 会弹出命令行窗口。 <p>
 
 <b>注意：执行时间较长，大约需要3分钟。知乎这边很快。主要是微博的热搜页面作了修改，现在是跟随用户滑动动态渲染，所以需要做相应的等待处理。</b><p>
 
-![image](https://user-images.githubusercontent.com/112439804/196355999-7f901cae-a686-4225-adf7-e3110cd674db.png)
+![image](https://user-images.githubusercontent.com/112439804/196355999-7f901cae-a686-4225-adf7-e3110cd674db.png) <p>
 
 5.结果示例。<p>
 
