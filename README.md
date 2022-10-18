@@ -7,7 +7,7 @@
 作者：<a href="https://www.zhihu.com/people/nidaye2" target="_blank">尼尼尼@知乎</a>
 
 **使用过程概述：**<p>
-下载解压后运行exe -> 修改config.json中“keyWordList”自定义关键词 -> 运行main.exe <p>
+下载解压后运行exe -> 修改自定义关键词 -> 运行main.exe <p>
 
 **下载地址：**<p>
 百度网盘: https://pan.baidu.com/s/1cYQtcfRqW_IsrOBNch4Zew?pwd=6666  <p>
