@@ -6,7 +6,7 @@
 
 <p><br>
 包含邮件发送功能，有兴趣的朋友可以放到自己服务器上配置成定时任务。<p>
-（Linux使用mainForLinux.py，区别在于增加了浏览器参数。Centos8测试通过) <p>
+（Linux定时任务使用mainForLinux.py，区别在于增加了浏览器参数。Centos8测试通过。记得同时上传config.json, 并设置相关邮箱参数。) <p>
 <p>
 <p><br>
 
