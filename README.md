@@ -11,7 +11,7 @@
 <p><br>
 
 测试代码没有清理干净，先保留，方便以后改进。<p>
-知乎和微博的热榜总数都只能扫描到44条，原因不明，暂时不再排查。<p>
+知乎热榜只能扫描到44条，原因不明，暂时不再排查。<p>
 作者：<a href="https://www.zhihu.com/people/nidaye2" target="_blank">尼尼尼@知乎</a>
 
 **使用过程概述：**<p>
@@ -61,8 +61,6 @@ autoOpenResult -- 默认为1，执行完成后在浏览器中打开。如改为0
 ![image](https://user-images.githubusercontent.com/112439804/196354343-075e8e10-066b-46e8-85d8-cabb0384c760.png) <p>
 
 4.执行main.exe, 会弹出命令行窗口。 <p>
-
-<b>注意：执行时间较长，大约需要3分钟。知乎这边很快。主要是微博的热搜页面作了修改，现在是跟随用户滑动动态渲染，所以需要做相应的等待处理。</b><p>
 
 ![image](https://user-images.githubusercontent.com/112439804/196355999-7f901cae-a686-4225-adf7-e3110cd674db.png) <p>
 
