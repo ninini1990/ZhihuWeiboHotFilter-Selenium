@@ -1,6 +1,7 @@
 # Author: 尼尼尼@知乎
 # Author: 备份公众号： 尼尼尼不打拳
 # HomePage: https://www.zhihu.com/people/nidaye2
+# Version: 1.1
 
 import os
 import time
@@ -27,7 +28,8 @@ from webdriver_manager.chrome import ChromeDriverManager
 # 定义知乎和微博热榜页面地址
 zhihuHotUrl = 'https://www.zhihu.com/hot'
 # weiboHotUrl = 'https://weibo.com/ajax/statuses/hot_band'
-weiboHotUrl = 'https://weibo.com/hot/search'
+# weiboHotUrl = 'https://weibo.com/hot/search' # 热搜动态刷新页面
+weiboHotUrl = 'https://s.weibo.com/top/summary?cate=realtimehot'  #找到了热搜静态页面
 jsonPath = 'config.json'
 
 # 定义关键词数组
@@ -109,6 +111,7 @@ def filterZhihuHot(keyWordList):
     print('开始获取知乎热榜')
     zhihuHotLinks = []
     driver = initBrowser(zhihuHotUrl)
+    time.sleep(5)
     driver.execute_script("window.scrollTo(0,document.body.scrollHeight)")
     # for i in range(5):
     #     driver.execute_script("window.scrollBy(0, 1000)")
@@ -192,19 +195,17 @@ def filterZhihuHot(keyWordList):
 # 微博热搜是动态加载，需要滚动逐屏抓取 -- 抓不到，放弃
 # 改用一个直接返回json数据的接口，但是里面只有标题没有链接，凑合看了。
 def filterWeiboHot(keyWordList):
-    links = []
     weiboHotLinks = []
 
-    print('获取微博热搜Json数据')
+    print('获取微博热搜数据')
     driver = initBrowser(weiboHotUrl)
-    time.sleep(5)
-
-    hotButton = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.CSS_SELECTOR, 'div[title="热搜榜"]'))
-    )
-
-    hotButton.click()
     time.sleep(10)
+
+    # hotButton = WebDriverWait(driver, 10).until(
+    #     EC.presence_of_element_located((By.CSS_SELECTOR, 'a[title="热搜榜"]'))
+    # )
+
+    driver.execute_script("window.scrollTo(0,document.body.scrollHeight)")
 
     # elements = driver.find_elements(By.CSS_SELECTOR, 'div[class="vue-recycle-scroller__item-view"]')
     #
@@ -216,19 +217,33 @@ def filterWeiboHot(keyWordList):
     #     temp = {'link': link, 'title': title}
     #     weiboHotLinks.append(temp)
 
-    for i in range(10):
-        elements = driver.find_elements(By.CSS_SELECTOR, 'div[class="vue-recycle-scroller__item-view"]')
 
-        for item in elements:
-            linkNode = item.find_element(By.CSS_SELECTOR, "a")
-            link = linkNode.get_property('href')
-            titleNode = item.find_element(By.CSS_SELECTOR,'div[class="HotTopic_tit_eS4fv"]')
-            title = titleNode.text
-            temp = {'link': link, 'title': title}
-            weiboHotLinks.append(temp)
+    # 对于微博热搜动态页面
 
-        driver.execute_script("window.scrollBy(0, 300)")
-        time.sleep(10)
+    # for i in range(10):
+    #     elements = driver.find_elements(By.CSS_SELECTOR, 'div[class="vue-recycle-scroller__item-view"]')
+    #
+    #     for item in elements:
+    #         linkNode = item.find_element(By.CSS_SELECTOR, "a")
+    #         link = linkNode.get_property('href')
+    #         titleNode = item.find_element(By.CSS_SELECTOR,'div[class="HotTopic_tit_eS4fv"]')
+    #         title = titleNode.text
+    #         temp = {'link': link, 'title': title}
+    #         weiboHotLinks.append(temp)
+    #
+    #     driver.execute_script("window.scrollBy(0, 300)")
+    #     time.sleep(10)
+
+
+    # 对于微博热搜静态页面的处理
+    elements = driver.find_elements(By.CSS_SELECTOR, 'ul[class="list_a"] > li')
+    for item in elements:
+        linkNode = item.find_element(By.CSS_SELECTOR, 'a')
+        link = linkNode.get_property('href')
+        titleNode = item.find_element(By.CSS_SELECTOR, 'span')
+        title = titleNode.text
+        temp = {'link': link, 'title': title}
+        weiboHotLinks.append(temp)
 
     print(len(weiboHotLinks))
     filterWeiboList = filterLinks(weiboHotLinks, keyWordList)
@@ -344,7 +359,7 @@ def main():
         print('发送通知邮件成功')
 
     print('执行完毕')
-
+    input('按回车键退出...')
 
 # 主函数入口
 main()
