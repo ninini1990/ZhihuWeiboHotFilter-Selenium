@@ -1,5 +1,5 @@
 # Author: 尼尼尼@知乎
-# Author: 备份公从号： 尼尼尼不打拳
+# Author: 备份公众号： 尼尼尼不打拳
 # HomePage: https://www.zhihu.com/people/nidaye2
 
 import os
